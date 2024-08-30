@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+
+  <h1>Edit Page</h1>
+
+    <h2>Title</h2>
+    <p> <%= post.title %></p>
+
+    <h2>Content</h2>
+    <p> <%= post.content %></p>
+
+  <form id="<%- blogId %>" action="/edit/<%- blogId %>" method="POST">
+    <label for="blog-topic">Blog Topic:</label><br>
+    <input type="text" id="blog-topic" name="newBlogTopic" required><br><br>
+
+    <label for="blog-description">Blog Description:</label><br>
+    <textarea id="blog-description" name="newBlogDescription" rows="5" required></textarea><br><br>
+
+    <button type="submit">Submit Blog</button>
+ </form>
+
+
+<%- include("partials/footer.ejs") %>

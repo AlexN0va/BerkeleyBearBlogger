@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+
+  <h1>Post Page</h1>
+  <form id="blog-form" action="submit" method="POST">
+    <label for="blog-topic">Blog Topic:</label><br>
+    <input type="text" id="blog-topic" name="blogTopic" required><br><br>
+
+    <label for="blog-description">Blog Description:</label><br>
+    <textarea id="blog-description" name="blogDescription" rows="5" required></textarea><br><br>
+
+    <button type="submit">Submit Blog</button>
+    </form>
+
+    <% if (locals.listOfBlogs && listOfBlogs.length > 0) { %>
+
+    <% for (var i = 0; i < listOfBlogs.length; i++ ){ %>
+    <h1>Posts</h1>
+    <h3><%= listOfBlogs[i].title %></h3>
+    <p><%= listOfBlogs[i].content %></p>
+    <a id="<%- i %>" href="/edit/<%- i %>"> Edit Blog </a>
+    <% } }%>
+    
+
+<%- include("partials/footer.ejs") %>
